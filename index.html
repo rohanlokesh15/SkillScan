@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKILLSCAN — AI Resume Screening</title>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-magnifying-glass-chart"></i><span>SKILLSCAN</span></div>
+    <ul class="nav-links">
+      <li><a class="active" href="index.html">Screen</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Genuine Resume Screening</h1>
+      <p class="subtitle">Upload resumes and (optionally) a Job Description to get transparent rankings—no gimmicks.</p>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h3>Job Description (Optional)</h3>
+        <textarea id="jd-text" rows="8" placeholder="Paste the JD here to get more accurate matching."></textarea>
+        <div class="row">
+          <label class="button outline" for="jd-file"><i class="fas fa-file-arrow-up"></i> Upload JD File</label>
+          <input id="jd-file" type="file" accept=".pdf,.doc,.docx" hidden>
+          <span id="jd-file-name" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Resumes</h3>
+        <div id="drop" class="drop">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop resumes or</p>
+          <label class="button" for="resume-files"><i class="fas fa-folder-open"></i> Browse</label>
+          <input id="resume-files" type="file" multiple accept=".pdf,.doc,.docx" hidden>
+        </div>
+        <ul id="file-list" class="file-list"></ul>
+        <div class="row">
+          <button id="analyze" class="button primary"><i class="fas fa-robot"></i> Analyze</button>
+          <button id="clear" class="button"><i class="fas fa-trash"></i> Clear</button>
+        </div>
+        <div id="status" class="status muted"></div>
+      </div>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="results-header">
+        <h3>Results</h3>
+        <div class="row">
+          <label class="muted">Min Score <input id="min-score" type="range" min="0" max="100" value="0"></label>
+          <button id="export" class="button"><i class="fas fa-file-csv"></i> Export CSV</button>
+        </div>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2024 SKILLSCAN · Built by Rohan Lokesh</p>
+      <button id="open-settings" class="button small">Settings</button>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="settings" class="modal" hidden>
+    <div class="modal-content">
+      <span class="close close-settings">&times;</span>
+      <h3>Backend Settings</h3>
+      <p class="muted">Set your backend URL (e.g., <code>http://localhost:5000</code> or a Render/Railway URL).</p>
+      <input id="api-base" type="url" placeholder="https://your-backend.example.com">
+      <div class="row mt">
+        <button id="save-api" class="button primary">Save</button>
+        <button id="test-api" class="button">Test Connection</button>
+      </div>
+      <div id="api-msg" class="status muted"></div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

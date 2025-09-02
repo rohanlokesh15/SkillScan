@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — SKILLSCAN</title>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-magnifying-glass-chart"></i><span>SKILLSCAN</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Screen</a></li>
+      <li><a class="active" href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="about">
+      <h1>About SKILLSCAN</h1>
+      <p>SKILLSCAN is a mini project by <strong>Rohan Lokesh</strong> that aims to make resume screening practical and transparent.</p>
+      <h3>What makes it different?</h3>
+      <ul class="bullets">
+        <li>No inflated claims. This is a learning project.</li>
+        <li>Clear scoring based on TF‑IDF similarity + skill overlap with the JD.</li>
+        <li>Readable UI with explainable sections (skills, education, experience).</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul class="bullets">
+        <li>Parsing quality depends on resume formatting and JD clarity.</li>
+        <li>Heavier semantic models are not included by default to keep hosting simple.</li>
+      </ul>
+      <p class="muted">Roadmap: semantic matching (sentence-transformers), OCR for image PDFs, and HR portals with auth.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 SKILLSCAN · Built by Rohan Lokesh</p>
+  </footer>
+</body>
+</html>
